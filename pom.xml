@@ -2,22 +2,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>selenium-web-driver</artifactId>
 
     <groupId>ru.levelup.dariakhekalo.homework</groupId>
     <artifactId>DariaKhekalo_LevelUp</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
-        <scope>test</scope>
-    </dependency>
-    </dependencies>
-
-    
+    <properties>
+    <!-- Build properties -->
+    <java.source.version>1.8</java.source.version>
+    <java.target.version>1.8</java.target.version>
+    <encoding.source>UTF-8</encoding.source>
+    <!-- libs versions -->
+    <selenium.webdriver.version>3.14.0</selenium.webdriver.version>
+    <webdirver.manager.version>3.4.0</webdirver.manager.version>
+    <junit.version>4.12</junit.version>
+    <testng.version>6.14.3</testng.version>
+    <allure.version>2.10.0</allure.version>
+    <aspectj.version>1.8.10</aspectj.version>
+</properties>
 
 
     <build>
@@ -35,7 +42,42 @@
         </plugins>
     </build>
 
+    <dependencies>
 
 
+    <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.14.0</version>
+</dependency>
+
+    <dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.6</version>
+</dependency>
+
+    <dependency>
+    <groupId>org.hamcrest</groupId>
+    <artifactId>hamcrest</artifactId>
+    <version>2.1</version>
+    <scope>test</scope>
+</dependency>
+
+      <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.14.3</version>
+    <scope>test</scope>
+         </dependency>
+
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+
+</dependencies>
 
 </project>
