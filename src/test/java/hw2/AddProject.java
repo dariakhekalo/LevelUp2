@@ -1,5 +1,6 @@
 package hw2;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,15 +8,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.Matchers.*;
 import  static org.junit.Assert.assertEquals;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class MantisTest {
+public class AddProject {
 
     @Test
     public void loginTest() {
@@ -63,9 +68,10 @@ public class MantisTest {
         Assert.assertTrue(((ChromeDriver) driver).findElementById("project-description").isEnabled());
 
         //заполнение формы
-        driver.findElement(By.id("project-name")).sendKeys("Kitten Gav-Gav 2");
+        String projectsName = RandomStringUtils.randomAlphabetic(10);
+        driver.findElement(By.id("project-name")).sendKeys(projectsName);
         Select dropdown = new Select(driver.findElement(By.id("project-status")));
-        dropdown.selectByVisibleText("development");
+           dropdown.selectByVisibleText("development");
 
         WebElement checkBox;
         checkBox = driver.findElement(By.cssSelector(".lbl"));
@@ -81,12 +87,16 @@ public class MantisTest {
         driver.findElement(By.cssSelector(".btn.btn-primary.btn-white.btn-round")).click();
 
         //проверка на заполнение полей
-        assertEquals("Kitten Gav-Gav 2", driver.findElement(By.id("project-name")).getText());
-       // assertTrue(driver.findElement(By.id("project-name")).getText().equals("Kitten Gav-Gav"));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
+        List<WebElement> projectTableNameColumnValues = driver.findElements(By.xpath
+                ("//div[@class='table-responsive']//td//a"));
+        List<String> actualNameValues = new ArrayList<>();
+        for (WebElement projectTableNameColumnValue : projectTableNameColumnValues ){
+            actualNameValues.add(projectTableNameColumnValue.getText());
 
-
-
+        }
+        assertThat(actualNameValues,hasItem(projectsName));
 
         //logout
         driver.findElement(By.className("user-info")).click();
