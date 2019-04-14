@@ -1,10 +1,14 @@
 package junit;
+
+// TODO не используемые импорты
+// TODO Форматирование (CTRL + ALT + L)
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.testng.annotations.BeforeMethod;
+// TODO А какой именно калюкулятор тестируется?
 import ru.levelup.qaat.test.Calc;
 
 public class MulDiv {

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+// TODO А какой именно калюкулятор тестируется?
 import ru.levelup.qaat.test.Calc;
 
 
