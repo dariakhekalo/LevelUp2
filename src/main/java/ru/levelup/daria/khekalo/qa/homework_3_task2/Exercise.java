@@ -3,10 +3,13 @@ package ru.levelup.daria.khekalo.qa.homework_3_task2;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO форматиование (CTRL + ALT + l)
 public class Exercise {
     public static void main(String[] args){
 
         List<Sku> list = new ArrayList<>();
+        // TODO Цена товара должна задаваться случайным образом
+        // TODO задание коддичества товаров должно быть с клавиатуры
         list.add(new Sku ("good 1", 76.98));
         list.add(new Sku ("good 2", 11.02));
         list.add(new Sku ("good 3", 36.18));
@@ -16,6 +19,7 @@ public class Exercise {
         list.add(new Sku ("good 7", 67.17));
         list.add(new Sku ("good 8", 2.99));
 
+        // TODO low и high цены вводятся пользователем с клавиатуры
         System.out.println(getSkuInRange(list,10, 40));
      //   System.out.println calculateAverage;
     }
@@ -40,7 +44,7 @@ public class Exercise {
 
     }
 
-
+    // TODO закоментированииый код??
      /*   static List<Sku> getSkuAveragePrice(List<Sku> inputData, double averagePrice){
         List<Sku> result = new ArrayList<>();
             for (Sku item : inputData) {
