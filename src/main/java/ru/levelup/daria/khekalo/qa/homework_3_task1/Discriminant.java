@@ -5,11 +5,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+// TODO форматиование (CTRL + ALT + l)
     public class Discriminant {
 
-
+        // TODO почему всё в статик методе?
         public static void main(String[] args) throws IOException {
 
+            // TODO А как же закрыть поток ввода/вывода
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
             System.out.println("a, b, c : ");
