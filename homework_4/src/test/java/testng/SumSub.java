@@ -2,6 +2,7 @@ package testng;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+// TODO А какой именно калюкулятор тестируется?
 import ru.levelup.qaat.test.Calc;
 
 public class SumSub {

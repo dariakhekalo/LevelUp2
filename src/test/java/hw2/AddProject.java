@@ -1,5 +1,6 @@
 package hw2;
 
+// TODO Не используемые иморты удалить
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -20,9 +21,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
+// TODO форматирование (CTRL + ALT + L)
 public class AddProject {
 
     @Test
+    // TODO Имя теста должно отражать его суть.
     public void loginTest() {
         System.setProperty("webdriver.chrome.driver",
                 "src/test/resources/webdriver.chrome/chromedriver.exe");
@@ -41,6 +44,8 @@ public class AddProject {
         assertEquals("administrator", driver.findElement(By.className("user-info")).getText());
 
         //проверка наличия меню слева
+        // TODO В каих целях было оспользованно данное приведение ((ChromeDriver) driver)
+        // TODO findElementByCssSelector - почему был выбран данный метод?
         Assert.assertTrue(((ChromeDriver) driver).findElementByCssSelector(".nav-list").isEnabled());
 
         //переход и проверка на страницу Manage
@@ -52,6 +57,8 @@ public class AddProject {
         assertThat(driver.getTitle(), equalTo("Manage Projects - MantisBT"));
 
         //проверка наличия кнопки Create new project
+        // TODO В каих целях было оспользованно данное приведение ((ChromeDriver) driver)
+        // TODO findElementByCssSelector - почему был выбран данный метод?
         Assert.assertTrue(((ChromeDriver) driver).findElementByCssSelector(".btn.btn-primary.btn-white.btn-round")
                 .isEnabled());
 
@@ -61,6 +68,9 @@ public class AddProject {
                 driver.getCurrentUrl());
 
         //проверка наличия полей
+        // TODO В каих целях было оспользованно данное приведение ((ChromeDriver) driver)
+        // TODO findElementById - почему был выбран данный метод?
+        // TODO findElementByCssSelector - почему был выбран данный метод?
         Assert.assertTrue(((ChromeDriver) driver).findElementById("project-name").isEnabled());
         Assert.assertTrue(((ChromeDriver) driver).findElementById("project-status").isEnabled());
         Assert.assertTrue(((ChromeDriver) driver).findElementByCssSelector(".lbl").isEnabled());

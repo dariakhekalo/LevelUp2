@@ -1,7 +1,10 @@
 package ru.levelup.daria.khekalo.qa.homework_2;
+
+// TODO Не используемый импорт
 import java.util.*;
 public abstract class Vegetables implements Comparable<Vegetables>{
-	
+
+	// TODO Модификатор доступа какой должен быть?
 	int weight;
 	int calorie;
     String colour;
