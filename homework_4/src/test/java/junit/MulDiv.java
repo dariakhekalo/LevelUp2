@@ -4,6 +4,7 @@ package junit;
 // TODO Форматирование (CTRL + ALT + L)
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +45,11 @@ public class MulDiv {
     public void mulDoubleTest(){
         double result = calc.mulDouble(13.9, 7.1);
         Assert.assertEquals(98.6, result,0.2);
+    }
+    @After
+    public void tearDown() {
+        System.out.println("mul, div  works");
+        calc = null;
     }
 
 

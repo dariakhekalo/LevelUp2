@@ -47,7 +47,7 @@ public class SumSubtraction {
 
     @After
         public void tearDown() {
-            System.out.println("kill calc");
+            System.out.println("sum, sub  works");
             calc = null;
         }
     }

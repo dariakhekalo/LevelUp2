@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SubSumTestSuite">
+    <test name="SubSumTest">
+        <classes>
+            <class name="testng.MulDiv"/>
+        </classes>
+    </test>
+</suite>
