@@ -7,10 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.levelup.daria.khekalo.qa.hw6.HomePage;
-import ru.levelup.daria.khekalo.qa.hw6.LoginPageObj;
-import ru.levelup.daria.khekalo.qa.hw6.ManagePageObj;
-import ru.levelup.daria.khekalo.qa.hw6.ManageProjectsAddNew;
+import ru.levelup.daria.khekalo.qa.hw6.*;
 import ru.levelup.daria.khekalo.qa.hw6.base.BasePage;
 
 import java.util.ArrayList;
@@ -28,37 +25,47 @@ import static org.testng.AssertJUnit.assertEquals;
         private HomePage homePage;
         private ManageProjectsAddNew manageProjectsAddNew;
         private ManagePageObj managePageObj;
+        private TabElementsPage tabElementsPage;
+       // private LoginPageObj loginPageObj;
 
 
-
-        @BeforeMethod(alwaysRun = true)
-    @Override
+     @BeforeMethod(alwaysRun = true)
+      @Override
         public void setUpTest() {
         super.setUpTest();
         new LoginPageObj(driver).login("administrator","root");
         homePage = new HomePage(driver);
         managePageObj = new ManagePageObj(driver);
         manageProjectsAddNew = new ManageProjectsAddNew(driver);
+        tabElementsPage = new TabElementsPage(driver);
+
+     //   loginPageObj = new LoginPageObj(driver);
+
+     }
 
 
 
-            }
+
 
 
     @Test
-    public void createNewProject() {
+    public void createNewProjectTest() {
+
+
 
         assertEquals("administrator", driver.findElement(By.className("user-info")).getText());
 
 
         //переход и проверка на страницу Manage
-        homePage.selectMenu("Manage");
-        assertThat(homePage.getPageTitle() , equalTo("Manage - MantisBT"));
+        homePage.clickSelectMenu(LeftSideMenu.MANAGE.getValue());
+        driver.findElement(By.xpath("//a[contains(@href, 'manage_overview_page')]")).click();
+       assertThat(homePage.getPageTitle() , equalTo(HomePage.PAGE_TITLE));
 
 
         //переход на ManageProjects
-        managePageObj.clickManagePageObj();
-        assertThat(driver.getTitle(), equalTo("Manage Projects - MantisBT"));
+        tabElementsPage.clickTabByName("Manage Projects");
+        assertThat(homePage.getPageTitle(), equalTo(HomePage.PAGE_TITLE_PROJECTS));
+
 
 
         //клик и проверка перехода на страницу  add projects
@@ -69,9 +76,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
         //заполнение формы
         String projectName = RandomStringUtils.randomAlphabetic(10);
-       // String projectDescription = RandomStringUtils.randomAlphabetic(20);
-       // manageProjectsAddNew.CreateNewProjectButtonClick();
-        manageProjectsAddNew.setProjectNameField(projectName);
+              manageProjectsAddNew.setProjectNameField(projectName);
         manageProjectsAddNew.setProjectDescriptionField("This is a cute cartoon for children");
         manageProjectsAddNew.addProjectButtonClick();
 

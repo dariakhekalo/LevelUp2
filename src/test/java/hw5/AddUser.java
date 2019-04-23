@@ -1,4 +1,4 @@
-package hw6;
+package hw5;
 
 // TODO Не используемые иморты удалить
 
@@ -8,32 +8,37 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
+
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 
+
+
 // TODO форматирование (CTRL + ALT + L)
-public class AddUser extends BaseTest {
+public class AddUser {
 
     @Test
     // TODO Имя теста должно отражать его суть.
-    public void newUser() {
+    public void loginTest() {
         System.setProperty("webdriver.chrome.driver",
                 "src/test/resources/webdriver.chrome/chromedriver.exe");
-     //   WebDriver driver = new ChromeDriver();
-     //   driver.manage().window().maximize();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
         // открываем и проверяем страницу
-       // driver.get("http://khda91.fvds.ru/mantisbt/");
-       // assertThat(driver.getTitle(), equalTo("MantisBT"));
+        driver.get("http://khda91.fvds.ru/mantisbt/");
+        assertThat(driver.getTitle(), equalTo("MantisBT"));
 
         //ввод и проверка логина-пароля
-       // driver.findElement(By.id("username")).sendKeys("administrator");
-      //  driver.findElement(By.xpath("//input[@value='Login']")).click();
-      //  driver.findElement(By.id("password")).sendKeys("root");
-       // driver.findElement(By.xpath("//input[@value='Login']")).click();
-       // assertEquals("administrator", driver.findElement(By.className("user-info")).getText());
+        driver.findElement(By.id("username")).sendKeys("administrator");
+        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        driver.findElement(By.id("password")).sendKeys("root");
+        driver.findElement(By.xpath("//input[@value='Login']")).click();
+        assertEquals("administrator", driver.findElement(By.className("user-info")).getText());
 
         //проверка наличия меню слева
         // TODO В каих целях было оспользованно данное приведение ((ChromeDriver) driver)

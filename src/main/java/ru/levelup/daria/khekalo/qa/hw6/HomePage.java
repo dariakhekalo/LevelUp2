@@ -17,7 +17,9 @@ public class HomePage extends BasePage {
 
 
 
+    public static final  String PAGE_TITLE = "Manage - MantisBT";
 
+    public  static  final String PAGE_TITLE_PROJECTS = "Manage Projects - MantisBT";
 
     public HomePage(WebDriver driver){
        super(driver);

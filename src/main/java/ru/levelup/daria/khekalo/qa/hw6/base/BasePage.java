@@ -26,7 +26,7 @@ public abstract class BasePage extends BaseWebComponent {
         driver.findElement(By.partialLinkText("Logout")).click();
     }
 
-    public void selectMenu(String menuName) {
+    public void clickSelectMenu(String menuName) {
         for (WebElement menuItem : leftSideMenu) {
             if (menuItem.getText().trim().equals(menuName)) {
                 menuItem.click();
@@ -34,6 +34,8 @@ public abstract class BasePage extends BaseWebComponent {
             }
         }
     }
-
+    public List<WebElement> getLeftSideMenu(){
+        return leftSideMenu;
+    }
 
 }

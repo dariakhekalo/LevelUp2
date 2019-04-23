@@ -10,7 +10,7 @@ public class ManageProjectsAddNew  extends BasePage {
 
     private WebDriver driver;
 
-    @FindBy(className = ".btn.btn-primary.btn-white.btn-round")
+    @FindBy(css = ".btn.btn-primary.btn-white.btn-round")
     private WebElement createNewProjectButton;
 
 
