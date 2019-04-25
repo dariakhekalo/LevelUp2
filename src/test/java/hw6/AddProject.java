@@ -15,8 +15,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.*;
 import static org.testng.AssertJUnit.assertEquals;
 
 
@@ -26,24 +25,7 @@ import static org.testng.AssertJUnit.assertEquals;
         private ManageProjectsAddNew manageProjectsAddNew;
         private ManagePageObj managePageObj;
         private TabElementsPage tabElementsPage;
-       // private LoginPageObj loginPageObj;
-
-
-     @BeforeMethod(alwaysRun = true)
-      @Override
-        public void setUpTest() {
-        super.setUpTest();
-        new LoginPageObj(driver).login("administrator","root");
-        homePage = new HomePage(driver);
-        managePageObj = new ManagePageObj(driver);
-        manageProjectsAddNew = new ManageProjectsAddNew(driver);
-        tabElementsPage = new TabElementsPage(driver);
-
-     //   loginPageObj = new LoginPageObj(driver);
-
-     }
-
-
+        private LoginPageObj loginPageObj;
 
 
 
@@ -51,6 +33,11 @@ import static org.testng.AssertJUnit.assertEquals;
     @Test
     public void createNewProjectTest() {
 
+        loginPageObj = new LoginPageObj(driver);
+        homePage = new HomePage(driver);
+        manageProjectsAddNew = new ManageProjectsAddNew(driver);
+        tabElementsPage = new TabElementsPage(driver);
+        managePageObj = new ManagePageObj(driver);
 
 
         assertEquals("administrator", driver.findElement(By.className("user-info")).getText());

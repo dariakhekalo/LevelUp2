@@ -25,21 +25,21 @@ public class BaseTest {
 
     private Properties properties;
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void setUpSuite() {
 
         System.setProperty("webdriver.chrome.driver",
             "src/test/resources/webdriver.chrome/chromedriver.exe");
-// driver = new ChromeDriver();
- //loginPageObj = new LoginPageObj(driver);
- //properties = new Properties();
- //options = new ChromeOptions();
+        driver = new ChromeDriver();
+        loginPageObj = new LoginPageObj(driver);
+        properties = new Properties();
+        options = new ChromeOptions();
 
 
 
         WebDriverManager.chromedriver().setup();
 
-      //  LoginPageObj loginPageObj = new LoginPageObj(driver);
+        LoginPageObj loginPageObj = new LoginPageObj(driver);
        Properties properties = new Properties();
         try {
             properties.load(new FileInputStream(new File("src/test/resources/hw6/login.properties")));
@@ -47,35 +47,16 @@ public class BaseTest {
             e.printStackTrace();
         }
 
-       // driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-        //driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
-        //driver.manage().timeouts().setScriptTimeout(15000, TimeUnit.MILLISECONDS);
-        //driver.manage().window().maximize();
-
-        //driver.get("http://khda91.fvds.ru/mantisbt/");
-     //   assertThat(driver.getTitle(), equalTo("MantisBT"));
-
-      //  loginPageObj.login(properties.getProperty("admin.username"),properties.getProperty("admin.password"));
-       // Long.parseLong(properties.getProperty("browser.implicitly.timeout.ms"));
-    }
-
-    @BeforeClass(alwaysRun = true)
-    public void setUpClassTest() {
-        options = new ChromeOptions();
-    }
-
-   @BeforeMethod
-    public void setUpTest() {
-        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().setScriptTimeout(15000, TimeUnit.MILLISECONDS);
         driver.manage().window().maximize();
-       //  открываем и проверяем страницу
+
         driver.get("http://khda91.fvds.ru/mantisbt/");
         assertThat(driver.getTitle(), equalTo("MantisBT"));
 
-
+        loginPageObj.login(properties.getProperty("admin.username"),properties.getProperty("admin.password"));
+        Long.parseLong(properties.getProperty("browser.implicitly.timeout.ms"));
     }
 
     @AfterTest

@@ -11,11 +11,6 @@ public class HomePage extends BasePage {
     private WebDriver driver;
 
 
-  //  @FindBy(partialLinkText = "Manage")
-  //  private WebElement manageLink;
-
-
-
 
     public static final  String PAGE_TITLE = "Manage - MantisBT";
 
@@ -25,8 +20,6 @@ public class HomePage extends BasePage {
        super(driver);
     }
 
-  //  public void clickManageLink(){
-    //    manageLink.click();
-    //}
+
 
 }

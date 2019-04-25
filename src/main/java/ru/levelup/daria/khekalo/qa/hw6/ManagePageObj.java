@@ -10,16 +10,9 @@ import ru.levelup.daria.khekalo.qa.hw6.base.BaseWebComponent;
 public class ManagePageObj extends BasePage {
     private WebDriver driver;
 
-  //  @FindBy(partialLinkText = "Manage Projects")
-  //  private WebElement manageProjects;
-
     public ManagePageObj(WebDriver driver){
         super(driver);
     }
 
-
-   // public void clickManagePageObj(){
-      //  manageProjects.click();
-   // }
 
 }
