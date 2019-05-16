@@ -32,7 +32,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
     @Test
     public void createNewProjectTest() {
-
+        // TODO инициализацию страниц лучше выносить в Before hook
         loginPageObj = new LoginPageObj(driver);
         homePage = new HomePage(driver);
         manageProjectsAddNew = new ManageProjectsAddNew(driver);
