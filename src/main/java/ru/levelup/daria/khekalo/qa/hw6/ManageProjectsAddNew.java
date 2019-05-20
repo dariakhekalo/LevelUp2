@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.levelup.daria.khekalo.qa.hw6.base.BasePage;
 
 public class ManageProjectsAddNew  extends BasePage {
-
+    // TODO А для каких целей поле драйвера?
     private WebDriver driver;
 
     @FindBy(css = ".btn.btn-primary.btn-white.btn-round")

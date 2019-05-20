@@ -56,6 +56,7 @@ public class BaseTest {
         assertThat(driver.getTitle(), equalTo("MantisBT"));
 
         loginPageObj.login(properties.getProperty("admin.username"),properties.getProperty("admin.password"));
+        // TODO А что ожидается от данной операции?
         Long.parseLong(properties.getProperty("browser.implicitly.timeout.ms"));
     }
 

@@ -8,6 +8,7 @@ import ru.levelup.daria.khekalo.qa.hw6.base.BaseWebComponent;
 
 
 public class LoginPageObj extends BaseWebComponent {
+    // TODO А для каких целей поле драйвера?
     private WebDriver driver;
 
     @FindBy(id = "username")
@@ -25,6 +26,7 @@ public class LoginPageObj extends BaseWebComponent {
     }
 
     //ввод и проверка логина-пароля
+    // TODO Лучше использовать объект вместо 2-х параметров
     public void login(final String username,final String password) {
 
         userField.sendKeys(username);
